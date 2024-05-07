@@ -1,0 +1,20 @@
+{
+    "modules": [
+        "auth/login",
+        "employee/employee_main_navigation",
+        "employee/employee_dashboard",
+        "employee/employee_profile",
+        "hrd/hrd_main_navigation",
+        "hrd/hrd_dashboard",
+        "hrd/hrd_profile"
+    ],
+    "module_directory_name": "module",
+    "experimental_mode": false,
+    "learning_mode": false,
+    "unfreezed": true,
+    "use_cubit": true,
+    "ignore_core_generator_for_directories": [
+        "lib/model",
+        "lib/models"
+    ]
+}
