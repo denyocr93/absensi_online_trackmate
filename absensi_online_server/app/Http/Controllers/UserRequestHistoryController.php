@@ -9,6 +9,7 @@ use App\Models\UserRequestHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class UserRequestHistoryController extends Controller
 {
@@ -31,7 +32,9 @@ class UserRequestHistoryController extends Controller
         }
 
         $data = $request->all();
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
         $data['user_id'] = $current_user->id;
         $userRequestHistory = UserRequestHistory::create($data);
         return response()->json(['user_request_history' => $userRequestHistory], 201);
@@ -65,7 +68,9 @@ class UserRequestHistoryController extends Controller
         }
 
         $data = $request->all();
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
         if($current_user->role == 'HRD') {
             $data["approved_by"] = $current_user->id;
         }

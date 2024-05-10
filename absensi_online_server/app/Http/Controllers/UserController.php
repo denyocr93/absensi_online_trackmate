@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class UserController extends Controller
 {
@@ -14,7 +15,9 @@ class UserController extends Controller
     // data user company B => HRD Company B
     public function index(Request $request)
     {
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
 
         $query = User::where('company_id', $current_user->company_id);
 
@@ -41,7 +44,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
         $company_id = $current_user->company_id;
 
         $validator = Validator::make($request->all(), [
@@ -65,7 +70,9 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
         $company_id = $current_user->company_id;
 
         $user = User::where(
@@ -76,12 +83,14 @@ class UserController extends Controller
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);
         }
-        return response()->json(['user' => $user], 200);
+        return response()->json(['data' => $user], 200);
     }
 
     public function update(Request $request, $id)
     {
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
         $company_id = $current_user->company_id;
 
         $validator = Validator::make($request->all(), [
@@ -108,7 +117,9 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        $current_user = Auth::user();
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
         $company_id = $current_user->company_id;
         $user = User::where(
             "id",

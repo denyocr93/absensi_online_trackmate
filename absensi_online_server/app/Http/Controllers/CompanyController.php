@@ -39,7 +39,7 @@ class CompanyController extends Controller
         if (!$company) {
             return response()->json(['error' => 'Company not found'], 404);
         }
-        return response()->json(['company' => $company], 200);
+        return response()->json(['data' => $company], 200);
     }
 
     public function update(Request $request, $id)
@@ -47,9 +47,7 @@ class CompanyController extends Controller
         $validator = Validator::make($request->all(), [
             'company_name' => 'required',
             'address' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'status' => 'required',
+            'description' => 'required',
         ]);
 
         if ($validator->fails()) {
