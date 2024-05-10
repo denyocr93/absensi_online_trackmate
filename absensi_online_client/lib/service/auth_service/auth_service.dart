@@ -4,10 +4,11 @@ import 'package:hyper_ui/env.dart';
 
 String? get token => DBService.get("token");
 String? get role => DBService.get("role");
+int? get currentUserID => int.tryParse(DBService.get("id")!);
+int? get currentUserCompanyID => int.tryParse(DBService.get("company_id")!);
 
 bool get isEmployee => role == "Employee";
 bool get isHRD => role == "HRD";
-
 bool get isLoggedIn => token != null;
 
 class AuthService {
@@ -31,6 +32,8 @@ class AuthService {
       Map obj = response.data;
       DBService.set("token", obj["data"]["token"]);
       DBService.set("role", obj["data"]["role"]);
+      DBService.set("id", obj["data"]["id"].toString());
+      DBService.set("company_id", obj["data"]["company_id"].toString());
       return true;
     } on Exception catch (err) {
       throw Exception(err);
@@ -43,8 +46,6 @@ class AuthService {
         "$baseUrl/api/auth/logout",
         options: Options(
           headers: {
-            "Accept": "*/*",
-            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Authorization": "Bearer $token",
           },
         ),

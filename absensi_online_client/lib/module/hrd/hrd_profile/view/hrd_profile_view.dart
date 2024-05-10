@@ -132,6 +132,11 @@ class _HrdProfileViewState extends State<HrdProfileView> {
             HS6(title: "GENERAL"),
             ListItem(
               prefixIcon: Icons.wallet,
+              label: "Edit company",
+              onTap: () => Get.to(HrdEditCompanyFormView()),
+            ),
+            ListItem(
+              prefixIcon: Icons.wallet,
               label: "25000",
               onTap: () {},
             ),

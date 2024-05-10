@@ -9,6 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Diointerceptors.init();
   await DBService.init();
+  await DBService.clear("token");
   runMainApp();
 }
 
@@ -23,24 +24,15 @@ class MainApp extends StatefulWidget {
   State<MainApp> createState() => _MainAppState();
 }
 
-class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
+class _MainAppState extends State<MainApp> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) {
-      Navigator.of(context).pushReplacementNamed('/profile');
-    }
   }
 
   @override

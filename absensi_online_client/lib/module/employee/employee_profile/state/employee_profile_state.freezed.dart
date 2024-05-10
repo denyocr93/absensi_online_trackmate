@@ -18,6 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EmployeeProfileState {
   int get counter => throw _privateConstructorUsedError;
   set counter(int value) => throw _privateConstructorUsedError;
+  GetUserByIdResponse? get getUserByIdResponse =>
+      throw _privateConstructorUsedError;
+  set getUserByIdResponse(GetUserByIdResponse? value) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EmployeeProfileStateCopyWith<EmployeeProfileState> get copyWith =>
@@ -30,7 +34,9 @@ abstract class $EmployeeProfileStateCopyWith<$Res> {
           $Res Function(EmployeeProfileState) then) =
       _$EmployeeProfileStateCopyWithImpl<$Res, EmployeeProfileState>;
   @useResult
-  $Res call({int counter});
+  $Res call({int counter, GetUserByIdResponse? getUserByIdResponse});
+
+  $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse;
 }
 
 /// @nodoc
@@ -48,13 +54,31 @@ class _$EmployeeProfileStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? counter = null,
+    Object? getUserByIdResponse = freezed,
   }) {
     return _then(_value.copyWith(
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
               as int,
+      getUserByIdResponse: freezed == getUserByIdResponse
+          ? _value.getUserByIdResponse
+          : getUserByIdResponse // ignore: cast_nullable_to_non_nullable
+              as GetUserByIdResponse?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse {
+    if (_value.getUserByIdResponse == null) {
+      return null;
+    }
+
+    return $GetUserByIdResponseCopyWith<$Res>(_value.getUserByIdResponse!,
+        (value) {
+      return _then(_value.copyWith(getUserByIdResponse: value) as $Val);
+    });
   }
 }
 
@@ -66,7 +90,10 @@ abstract class _$$EmployeeProfileStateImplCopyWith<$Res>
       __$$EmployeeProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int counter});
+  $Res call({int counter, GetUserByIdResponse? getUserByIdResponse});
+
+  @override
+  $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse;
 }
 
 /// @nodoc
@@ -81,12 +108,17 @@ class __$$EmployeeProfileStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? counter = null,
+    Object? getUserByIdResponse = freezed,
   }) {
     return _then(_$EmployeeProfileStateImpl(
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
               as int,
+      getUserByIdResponse: freezed == getUserByIdResponse
+          ? _value.getUserByIdResponse
+          : getUserByIdResponse // ignore: cast_nullable_to_non_nullable
+              as GetUserByIdResponse?,
     ));
   }
 }
@@ -94,15 +126,19 @@ class __$$EmployeeProfileStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EmployeeProfileStateImpl implements _EmployeeProfileState {
-  _$EmployeeProfileStateImpl({this.counter = 0});
+  _$EmployeeProfileStateImpl(
+      {this.counter = 0, this.getUserByIdResponse = null});
 
   @override
   @JsonKey()
   int counter;
+  @override
+  @JsonKey()
+  GetUserByIdResponse? getUserByIdResponse;
 
   @override
   String toString() {
-    return 'EmployeeProfileState(counter: $counter)';
+    return 'EmployeeProfileState(counter: $counter, getUserByIdResponse: $getUserByIdResponse)';
   }
 
   @JsonKey(ignore: true)
@@ -115,11 +151,16 @@ class _$EmployeeProfileStateImpl implements _EmployeeProfileState {
 }
 
 abstract class _EmployeeProfileState implements EmployeeProfileState {
-  factory _EmployeeProfileState({int counter}) = _$EmployeeProfileStateImpl;
+  factory _EmployeeProfileState(
+      {int counter,
+      GetUserByIdResponse? getUserByIdResponse}) = _$EmployeeProfileStateImpl;
 
   @override
   int get counter;
   set counter(int value);
+  @override
+  GetUserByIdResponse? get getUserByIdResponse;
+  set getUserByIdResponse(GetUserByIdResponse? value);
   @override
   @JsonKey(ignore: true)
   _$$EmployeeProfileStateImplCopyWith<_$EmployeeProfileStateImpl>

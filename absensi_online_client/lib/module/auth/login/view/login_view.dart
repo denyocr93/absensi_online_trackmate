@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hyper_ui/core.dart';
@@ -99,6 +100,47 @@ class _LoginViewState extends State<LoginView> {
               label: "Login",
               onPressed: () => controller.login(),
             ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            if (kDebugMode) ...[
+              Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        state.email = "hrd1.alphawaveinc@demo.com";
+                        state.password = "123456";
+                        controller.login();
+                      },
+                      child: Text(
+                        "HRD",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        state.email = "user1.alphawaveinc@demo.com";
+                        state.password = "123456";
+                        controller.login();
+                      },
+                      child: Text(
+                        "Employee",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
         ),
       ),

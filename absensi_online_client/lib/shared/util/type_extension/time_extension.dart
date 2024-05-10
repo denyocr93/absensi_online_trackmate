@@ -7,3 +7,12 @@ extension TimeOfDayExtension on TimeOfDay {
     return '$hour:$time';
   }
 }
+
+extension TimeOfDayStringExtension on String {
+  TimeOfDay? get timeOfDay {
+    var arr = this.split(":");
+    int hour = int.parse(arr[0]);
+    int minute = int.parse(arr[1]);
+    return TimeOfDay(hour: hour, minute: minute);
+  }
+}

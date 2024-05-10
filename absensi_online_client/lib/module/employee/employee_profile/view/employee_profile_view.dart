@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hyper_ui/core.dart';
+import 'package:hyper_ui/env.dart';
 import 'package:hyper_ui/shared/widget/list/list_item.dart';
 import '../controller/employee_profile_controller.dart';
 import '../state/employee_profile_state.dart';
 import 'package:get_it/get_it.dart';
 
 class EmployeeProfileView extends StatefulWidget {
-  const EmployeeProfileView({Key? key}) : super(key: key);
+  EmployeeProfileView({Key? key}) : super(key: key);
 
   @override
   State<EmployeeProfileView> createState() => _EmployeeProfileViewState();
@@ -57,17 +58,20 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
     EmployeeProfileState state,
   ) {
 //CTRL+SHIFT+ALT+.
+
+    if (state.getUserByIdResponse == null) return LoadingScaffold();
+    var item = state.getUserByIdResponse!.data!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
-        actions: const [],
+        title: Text("Profile"),
+        actions: [],
       ),
       body: SingleChildScrollView(
         controller: ScrollController(),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
+              padding: EdgeInsets.symmetric(
                 vertical: 20.0,
               ),
               child: Column(
@@ -75,7 +79,9 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
                   Builder(builder: (context) {
                     double size = 52.0;
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(EmployeeEditProfileFormView());
+                      },
                       child: Stack(
                         children: [
                           CircleAvatar(
@@ -86,8 +92,8 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
                               radius: size - 2,
                               child: CircleAvatar(
                                 radius: size - 4,
-                                backgroundImage: const NetworkImage(
-                                  "https://i.ibb.co/PGv8ZzG/me.jpg",
+                                backgroundImage: NetworkImage(
+                                  item.photo ?? "",
                                 ),
                               ),
                             ),
@@ -98,7 +104,7 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
                             child: CircleAvatar(
                               radius: 16.0,
                               backgroundColor: primaryColor.withOpacity(0.8),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.edit,
                                 color: Colors.white,
                                 size: 16.0,
@@ -109,11 +115,11 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
                       ),
                     );
                   }),
-                  const SizedBox(
+                  SizedBox(
                     height: 6.0,
                   ),
                   Text(
-                    "John Doe",
+                    item.name ?? "-",
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 18.0,
@@ -122,9 +128,9 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
                     ),
                   ),
                   Text(
-                    "admin@demo.com",
+                    item.email ?? "-",
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12.0,
                     ),
                   ),
@@ -200,7 +206,7 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
               label: "Logout",
               onTap: () => controller.logout(),
             ),
-            const SizedBox(
+            SizedBox(
               height: 100.0,
             ),
           ],
