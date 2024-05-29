@@ -21,6 +21,7 @@ GetCompanyByIdResponse _$GetCompanyByIdResponseFromJson(
 
 /// @nodoc
 mixin _$GetCompanyByIdResponse {
+  @JsonKey(name: 'data')
   Data? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $GetCompanyByIdResponseCopyWith<$Res> {
           $Res Function(GetCompanyByIdResponse) then) =
       _$GetCompanyByIdResponseCopyWithImpl<$Res, GetCompanyByIdResponse>;
   @useResult
-  $Res call({Data? data});
+  $Res call({@JsonKey(name: 'data') Data? data});
 
   $DataCopyWith<$Res>? get data;
 }
@@ -86,7 +87,7 @@ abstract class _$$GetCompanyByIdResponseImplCopyWith<$Res>
       __$$GetCompanyByIdResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Data? data});
+  $Res call({@JsonKey(name: 'data') Data? data});
 
   @override
   $DataCopyWith<$Res>? get data;
@@ -119,12 +120,13 @@ class __$$GetCompanyByIdResponseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GetCompanyByIdResponseImpl implements _GetCompanyByIdResponse {
-  const _$GetCompanyByIdResponseImpl({this.data});
+  const _$GetCompanyByIdResponseImpl({@JsonKey(name: 'data') this.data});
 
   factory _$GetCompanyByIdResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetCompanyByIdResponseImplFromJson(json);
 
   @override
+  @JsonKey(name: 'data')
   final Data? data;
 
   @override
@@ -160,13 +162,14 @@ class _$GetCompanyByIdResponseImpl implements _GetCompanyByIdResponse {
 }
 
 abstract class _GetCompanyByIdResponse implements GetCompanyByIdResponse {
-  const factory _GetCompanyByIdResponse({final Data? data}) =
-      _$GetCompanyByIdResponseImpl;
+  const factory _GetCompanyByIdResponse(
+      {@JsonKey(name: 'data') final Data? data}) = _$GetCompanyByIdResponseImpl;
 
   factory _GetCompanyByIdResponse.fromJson(Map<String, dynamic> json) =
       _$GetCompanyByIdResponseImpl.fromJson;
 
   @override
+  @JsonKey(name: 'data')
   Data? get data;
   @override
   @JsonKey(ignore: true)
@@ -180,15 +183,25 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Data {
+  @JsonKey(name: 'id')
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'company_name')
   String? get companyName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'photo')
   dynamic get photo => throw _privateConstructorUsedError;
+  @JsonKey(name: 'address')
   String? get address => throw _privateConstructorUsedError;
+  @JsonKey(name: 'latitude')
   double? get latitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'longitude')
   double? get longitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'working_hour_start')
   String? get workingHourStart => throw _privateConstructorUsedError;
+  @JsonKey(name: 'working_hour_end')
   String? get workingHourEnd => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status')
   String? get status => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -204,16 +217,16 @@ abstract class $DataCopyWith<$Res> {
       _$DataCopyWithImpl<$Res, Data>;
   @useResult
   $Res call(
-      {int? id,
-      String? companyName,
-      String? description,
-      dynamic photo,
-      String? address,
-      double? latitude,
-      double? longitude,
-      String? workingHourStart,
-      String? workingHourEnd,
-      String? status,
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'company_name') String? companyName,
+      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'photo') dynamic photo,
+      @JsonKey(name: 'address') String? address,
+      @JsonKey(name: 'latitude') double? latitude,
+      @JsonKey(name: 'longitude') double? longitude,
+      @JsonKey(name: 'working_hour_start') String? workingHourStart,
+      @JsonKey(name: 'working_hour_end') String? workingHourEnd,
+      @JsonKey(name: 'status') String? status,
       DateTime? createdAt,
       DateTime? updatedAt});
 }
@@ -305,16 +318,16 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int? id,
-      String? companyName,
-      String? description,
-      dynamic photo,
-      String? address,
-      double? latitude,
-      double? longitude,
-      String? workingHourStart,
-      String? workingHourEnd,
-      String? status,
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'company_name') String? companyName,
+      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'photo') dynamic photo,
+      @JsonKey(name: 'address') String? address,
+      @JsonKey(name: 'latitude') double? latitude,
+      @JsonKey(name: 'longitude') double? longitude,
+      @JsonKey(name: 'working_hour_start') String? workingHourStart,
+      @JsonKey(name: 'working_hour_end') String? workingHourEnd,
+      @JsonKey(name: 'status') String? status,
       DateTime? createdAt,
       DateTime? updatedAt});
 }
@@ -399,16 +412,16 @@ class __$$DataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DataImpl implements _Data {
   const _$DataImpl(
-      {this.id,
-      this.companyName,
-      this.description,
-      this.photo,
-      this.address,
-      this.latitude,
-      this.longitude,
-      this.workingHourStart,
-      this.workingHourEnd,
-      this.status,
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'company_name') this.companyName,
+      @JsonKey(name: 'description') this.description,
+      @JsonKey(name: 'photo') this.photo,
+      @JsonKey(name: 'address') this.address,
+      @JsonKey(name: 'latitude') this.latitude,
+      @JsonKey(name: 'longitude') this.longitude,
+      @JsonKey(name: 'working_hour_start') this.workingHourStart,
+      @JsonKey(name: 'working_hour_end') this.workingHourEnd,
+      @JsonKey(name: 'status') this.status,
       this.createdAt,
       this.updatedAt});
 
@@ -416,24 +429,34 @@ class _$DataImpl implements _Data {
       _$$DataImplFromJson(json);
 
   @override
+  @JsonKey(name: 'id')
   final int? id;
   @override
+  @JsonKey(name: 'company_name')
   final String? companyName;
   @override
+  @JsonKey(name: 'description')
   final String? description;
   @override
+  @JsonKey(name: 'photo')
   final dynamic photo;
   @override
+  @JsonKey(name: 'address')
   final String? address;
   @override
+  @JsonKey(name: 'latitude')
   final double? latitude;
   @override
+  @JsonKey(name: 'longitude')
   final double? longitude;
   @override
+  @JsonKey(name: 'working_hour_start')
   final String? workingHourStart;
   @override
+  @JsonKey(name: 'working_hour_end')
   final String? workingHourEnd;
   @override
+  @JsonKey(name: 'status')
   final String? status;
   @override
   final DateTime? createdAt;
@@ -505,40 +528,50 @@ class _$DataImpl implements _Data {
 
 abstract class _Data implements Data {
   const factory _Data(
-      {final int? id,
-      final String? companyName,
-      final String? description,
-      final dynamic photo,
-      final String? address,
-      final double? latitude,
-      final double? longitude,
-      final String? workingHourStart,
-      final String? workingHourEnd,
-      final String? status,
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'company_name') final String? companyName,
+      @JsonKey(name: 'description') final String? description,
+      @JsonKey(name: 'photo') final dynamic photo,
+      @JsonKey(name: 'address') final String? address,
+      @JsonKey(name: 'latitude') final double? latitude,
+      @JsonKey(name: 'longitude') final double? longitude,
+      @JsonKey(name: 'working_hour_start') final String? workingHourStart,
+      @JsonKey(name: 'working_hour_end') final String? workingHourEnd,
+      @JsonKey(name: 'status') final String? status,
       final DateTime? createdAt,
       final DateTime? updatedAt}) = _$DataImpl;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
   @override
+  @JsonKey(name: 'id')
   int? get id;
   @override
+  @JsonKey(name: 'company_name')
   String? get companyName;
   @override
+  @JsonKey(name: 'description')
   String? get description;
   @override
+  @JsonKey(name: 'photo')
   dynamic get photo;
   @override
+  @JsonKey(name: 'address')
   String? get address;
   @override
+  @JsonKey(name: 'latitude')
   double? get latitude;
   @override
+  @JsonKey(name: 'longitude')
   double? get longitude;
   @override
+  @JsonKey(name: 'working_hour_start')
   String? get workingHourStart;
   @override
+  @JsonKey(name: 'working_hour_end')
   String? get workingHourEnd;
   @override
+  @JsonKey(name: 'status')
   String? get status;
   @override
   DateTime? get createdAt;

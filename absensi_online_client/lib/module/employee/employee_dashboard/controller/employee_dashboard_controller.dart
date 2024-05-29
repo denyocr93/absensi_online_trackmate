@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hyper_ui/service/auth_service/auth_service.dart';
+import 'package:hyper_ui/service/user_service/user_service.dart';
 import '../state/employee_dashboard_state.dart';
 import 'package:hyper_ui/bloc_util.dart';
 import 'package:injectable/injectable.dart';
@@ -11,6 +13,7 @@ class EmployeeDashboardController extends Cubit<EmployeeDashboardState>
   @override
   void initState() {
     //initState event
+    getCurrentUserData();
   }
 
   @override
@@ -23,8 +26,11 @@ class EmployeeDashboardController extends Cubit<EmployeeDashboardState>
     //ready event
   }
 
-  increment() {
-    state.counter++;
+  getCurrentUserData() async {
+    state.getUserByIdResponse = null;
+    emit(state.copyWith());
+
+    state.getUserByIdResponse = await UserService().getUserByID(currentUserID!);
     emit(state.copyWith());
   }
 }

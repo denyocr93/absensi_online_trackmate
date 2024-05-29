@@ -1,15 +1,6 @@
 {
     "modules": [
-        "auth/login",
-        "employee/employee_main_navigation",
-        "employee/employee_dashboard",
-        "employee/employee_profile",
-        "employee/employee_edit_profile_form",
-        "hrd/hrd_main_navigation",
-        "hrd/hrd_dashboard",
-        "hrd/hrd_profile",
-        "hrd/hrd_edit_profile_form",
-        "hrd/hrd_edit_company_form"
+        "general/user_request_reject_popup"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

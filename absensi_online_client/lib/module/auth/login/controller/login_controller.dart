@@ -10,7 +10,7 @@ import 'package:injectable/injectable.dart';
 class LoginController extends Cubit<LoginState> implements IBlocBase {
   LoginController() : super(LoginState());
 
-  @override
+  @override //anotasi override
   void initState() {
     //initState event
     // state.email = "hrd1.alphawaveinc@demo.com";

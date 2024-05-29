@@ -160,11 +160,12 @@ class _QCameraPickerState extends State<QCameraPicker> {
         ImageProvider image;
         if (imageUrl != null && imageUrl!.startsWith('http')) {
           image = NetworkImage(
-            imageUrl ?? 'https://i.ibb.co/S32HNjD/no-image.jpg',
+            imageUrl ??
+                'https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg',
           );
         } else if (imageUrl == null) {
           image = const NetworkImage(
-            'https://i.ibb.co/S32HNjD/no-image.jpg',
+            'https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg',
           );
         } else {
           image = MemoryImage(

@@ -78,3 +78,8 @@ extension DateTimeExtension on DateTime {
 }
 
 DateTime get now => DateTime.now().toLocal();
+DateTime get nowWithoutTime {
+  var now = DateTime.now().toLocal();
+  var date = DateTime(now.year, now.month, now.day, 0, 0, 0);
+  return date;
+}

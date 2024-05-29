@@ -136,7 +136,7 @@ class _QImagePickerState extends State<QImagePicker> {
                   : DecorationImage(
                       image: NetworkImage(
                         imageUrl == null
-                            ? 'https://i.ibb.co/S32HNjD/no-image.jpg'
+                            ? 'https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg'
                             : imageUrl!,
                       ),
                       fit: BoxFit.cover,

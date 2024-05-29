@@ -61,8 +61,8 @@ class HrdEditCompanyFormController extends Cubit<HrdEditCompanyFormState>
       description: state.description,
       latitude: state.latitude,
       longitude: state.longitude,
-      workingHourStart: state.workingHourStart?.toString(),
-      workingHourEnd: state.workingHourEnd?.toString(),
+      workingHourStart: state.workingHourStart?.kkmm,
+      workingHourEnd: state.workingHourEnd?.kkmm,
     );
     hideLoading();
     Get.back();

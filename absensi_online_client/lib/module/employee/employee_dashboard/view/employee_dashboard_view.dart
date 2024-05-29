@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hyper_ui/core.dart';
+import 'package:hyper_ui/shared/theme/theme_config.dart';
+import 'package:hyper_ui/shared/widget/carousel/carousel.dart';
+import 'package:hyper_ui/shared/widget/scaffold/loading_scaffold.dart';
 import '../controller/employee_dashboard_controller.dart';
 import '../state/employee_dashboard_state.dart';
 import 'package:get_it/get_it.dart';
 
 class EmployeeDashboardView extends StatefulWidget {
-  const EmployeeDashboardView({Key? key}) : super(key: key);
+  EmployeeDashboardView({Key? key}) : super(key: key);
 
   @override
   State<EmployeeDashboardView> createState() => _EmployeeDashboardViewState();
@@ -54,26 +58,289 @@ class _EmployeeDashboardViewState extends State<EmployeeDashboardView> {
     EmployeeDashboardController controller,
     EmployeeDashboardState state,
   ) {
+    if (state.getUserByIdResponse == null) return LoadingScaffold();
+    var item = state.getUserByIdResponse!.data!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('EmployeeDashboard'),
+        title: Text('Trackmate'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'Counter: ${state.counter}',
-            style: const TextStyle(fontSize: 24),
+      body: SingleChildScrollView(
+        controller: ScrollController(),
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 32.0,
+                    backgroundImage: NetworkImage(
+                      item.photo ??
+                          "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
+                    ),
+                  ),
+                  SizedBox(
+                    width: 12.0,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${item.name}",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "${item.role}",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              QCarousel(
+                type: CarouselType.type5,
+                images: [
+                  "https://plus.unsplash.com/premium_photo-1677529494239-682591edd525?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                ],
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                children: [
+                  EmployeeDashboardMainActionButton(
+                    icon: Icons.login,
+                    label: "Check In",
+                    time: "10:20",
+                    status: "On Time",
+                  ),
+                  const SizedBox(
+                    width: 12.0,
+                  ),
+                  EmployeeDashboardMainActionButton(
+                    icon: Icons.login,
+                    label: "Check Out",
+                    time: "17:00",
+                    status: "On Time",
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Builder(builder: (context) {
+                List items = [
+                  {
+                    "icon": Icons.timer,
+                    "label": "Cuti",
+                    "on_tap": () => Get.to(UserRequestListView(
+                          requestType: "Leave",
+                        )),
+                  },
+                  {
+                    "icon": Icons.nordic_walking,
+                    "label": "Izin",
+                    "on_tap": () => Get.to(UserRequestListView(
+                          requestType: "Permission",
+                        )),
+                  },
+                  {
+                    "icon": Icons.timelapse,
+                    "label": "Lembur",
+                    "on_tap": () => Get.to(UserRequestListView(
+                          requestType: "Overtime",
+                        )),
+                  },
+                  {
+                    "icon": Icons.face,
+                    "label": "FaceTraining",
+                    "on_tap": () => Get.to(UserRequestListView(
+                          requestType: "FaceTraining",
+                        )),
+                  },
+                  {
+                    "icon": Icons.event,
+                    "label": "Event",
+                    "on_tap": () {},
+                  },
+                  {
+                    "icon": Icons.calendar_month,
+                    "label": "Kalender Absensi",
+                    "on_tap": () {},
+                  },
+                  {
+                    "icon": Icons.request_quote,
+                    "label": "User Request",
+                    "on_tap": () {},
+                  },
+                  {
+                    "icon": Icons.request_quote,
+                    "label": "xxx",
+                    "on_tap": () {},
+                  },
+                ];
+
+                return GridView.builder(
+                  padding: EdgeInsets.zero,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.0 / 1.1,
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 6,
+                    crossAxisSpacing: 6,
+                  ),
+                  itemCount: items.length,
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    var item = items[index];
+                    return InkWell(
+                      onTap: () => item["on_tap"](),
+                      child: Container(
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                  color: primaryColor,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(8.0),
+                                  ),
+                                ),
+                                child: FittedBox(
+                                  child: Icon(
+                                    item["icon"],
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 4.0,
+                            ),
+                            Text(
+                              item["label"],
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 12.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }),
+            ],
           ),
-          IconButton(
-            onPressed: () => controller.increment(),
-            icon: const Icon(
-              Icons.add,
-              size: 24.0,
+        ),
+      ),
+    );
+  }
+}
+
+class EmployeeDashboardMainActionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final String time;
+  final String status;
+  const EmployeeDashboardMainActionButton({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.time,
+    required this.status,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: InkWell(
+        onTap: () {},
+        child: Container(
+          padding: const EdgeInsets.all(12.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                8.0,
+              ),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x19000000),
+                blurRadius: 24,
+                offset: Offset(0, 11),
+              ),
+            ],
+            border: Border.all(
+              width: 1.0,
+              color: Colors.grey[300]!,
             ),
           ),
-        ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    icon,
+                    size: 24.0,
+                  ),
+                  const SizedBox(
+                    width: 8.0,
+                  ),
+                  Expanded(
+                    child: Text(
+                      label,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 4.0,
+              ),
+              Text(
+                time,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 4.0,
+              ),
+              Text(
+                status,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 14.0,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -59,7 +59,7 @@ class _HrdMainNavigationViewState extends State<HrdMainNavigationView> {
     return QNavigation(
       mode: QNavigationMode.nav2,
       pages: [
-        HrdDashboardView(),
+        EmployeeDashboardView(),
         HrdProfileView(),
       ],
       menus: [

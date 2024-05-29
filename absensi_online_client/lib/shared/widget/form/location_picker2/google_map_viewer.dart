@@ -57,7 +57,9 @@ class _GoogleMapViewerState extends State<GoogleMapViewer> {
     final url = '$baseUrl?input=$input&key=${AppConfig.googleMapApiKey}';
 
     try {
+      printg(url);
       final response = await Dio().get(url);
+      printg(response.statusCode.toString());
       if (response.statusCode == 200) {
         final places = <String>[];
         for (final prediction in response.data['predictions']) {

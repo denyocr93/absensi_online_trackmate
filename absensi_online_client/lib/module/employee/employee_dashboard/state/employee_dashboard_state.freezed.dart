@@ -18,6 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$EmployeeDashboardState {
   int get counter => throw _privateConstructorUsedError;
   set counter(int value) => throw _privateConstructorUsedError;
+  GetUserByIdResponse? get getUserByIdResponse =>
+      throw _privateConstructorUsedError;
+  set getUserByIdResponse(GetUserByIdResponse? value) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EmployeeDashboardStateCopyWith<EmployeeDashboardState> get copyWith =>
@@ -30,7 +34,9 @@ abstract class $EmployeeDashboardStateCopyWith<$Res> {
           $Res Function(EmployeeDashboardState) then) =
       _$EmployeeDashboardStateCopyWithImpl<$Res, EmployeeDashboardState>;
   @useResult
-  $Res call({int counter});
+  $Res call({int counter, GetUserByIdResponse? getUserByIdResponse});
+
+  $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse;
 }
 
 /// @nodoc
@@ -48,13 +54,31 @@ class _$EmployeeDashboardStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? counter = null,
+    Object? getUserByIdResponse = freezed,
   }) {
     return _then(_value.copyWith(
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
               as int,
+      getUserByIdResponse: freezed == getUserByIdResponse
+          ? _value.getUserByIdResponse
+          : getUserByIdResponse // ignore: cast_nullable_to_non_nullable
+              as GetUserByIdResponse?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse {
+    if (_value.getUserByIdResponse == null) {
+      return null;
+    }
+
+    return $GetUserByIdResponseCopyWith<$Res>(_value.getUserByIdResponse!,
+        (value) {
+      return _then(_value.copyWith(getUserByIdResponse: value) as $Val);
+    });
   }
 }
 
@@ -67,7 +91,10 @@ abstract class _$$EmployeeDashboardStateImplCopyWith<$Res>
       __$$EmployeeDashboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int counter});
+  $Res call({int counter, GetUserByIdResponse? getUserByIdResponse});
+
+  @override
+  $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse;
 }
 
 /// @nodoc
@@ -84,12 +111,17 @@ class __$$EmployeeDashboardStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? counter = null,
+    Object? getUserByIdResponse = freezed,
   }) {
     return _then(_$EmployeeDashboardStateImpl(
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
               as int,
+      getUserByIdResponse: freezed == getUserByIdResponse
+          ? _value.getUserByIdResponse
+          : getUserByIdResponse // ignore: cast_nullable_to_non_nullable
+              as GetUserByIdResponse?,
     ));
   }
 }
@@ -97,15 +129,19 @@ class __$$EmployeeDashboardStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EmployeeDashboardStateImpl implements _EmployeeDashboardState {
-  _$EmployeeDashboardStateImpl({this.counter = 0});
+  _$EmployeeDashboardStateImpl(
+      {this.counter = 0, this.getUserByIdResponse = null});
 
   @override
   @JsonKey()
   int counter;
+  @override
+  @JsonKey()
+  GetUserByIdResponse? getUserByIdResponse;
 
   @override
   String toString() {
-    return 'EmployeeDashboardState(counter: $counter)';
+    return 'EmployeeDashboardState(counter: $counter, getUserByIdResponse: $getUserByIdResponse)';
   }
 
   @JsonKey(ignore: true)
@@ -117,11 +153,16 @@ class _$EmployeeDashboardStateImpl implements _EmployeeDashboardState {
 }
 
 abstract class _EmployeeDashboardState implements EmployeeDashboardState {
-  factory _EmployeeDashboardState({int counter}) = _$EmployeeDashboardStateImpl;
+  factory _EmployeeDashboardState(
+      {int counter,
+      GetUserByIdResponse? getUserByIdResponse}) = _$EmployeeDashboardStateImpl;
 
   @override
   int get counter;
   set counter(int value);
+  @override
+  GetUserByIdResponse? get getUserByIdResponse;
+  set getUserByIdResponse(GetUserByIdResponse? value);
   @override
   @JsonKey(ignore: true)
   _$$EmployeeDashboardStateImplCopyWith<_$EmployeeDashboardStateImpl>

@@ -22,14 +22,14 @@ Map<String, dynamic> _$$GetCompanyByIdResponseImplToJson(
 
 _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       id: (json['id'] as num?)?.toInt(),
-      companyName: json['companyName'] as String?,
+      companyName: json['company_name'] as String?,
       description: json['description'] as String?,
       photo: json['photo'],
       address: json['address'] as String?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
-      workingHourStart: json['workingHourStart'] as String?,
-      workingHourEnd: json['workingHourEnd'] as String?,
+      workingHourStart: json['working_hour_start'] as String?,
+      workingHourEnd: json['working_hour_end'] as String?,
       status: json['status'] as String?,
       createdAt: json['createdAt'] == null
           ? null
@@ -42,14 +42,14 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
 Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'companyName': instance.companyName,
+      'company_name': instance.companyName,
       'description': instance.description,
       'photo': instance.photo,
       'address': instance.address,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
-      'workingHourStart': instance.workingHourStart,
-      'workingHourEnd': instance.workingHourEnd,
+      'working_hour_start': instance.workingHourStart,
+      'working_hour_end': instance.workingHourEnd,
       'status': instance.status,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),

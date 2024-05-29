@@ -26,6 +26,18 @@ export 'package:hyper_ui/module/employee/employee_main_navigation/view/employee_
 export 'package:hyper_ui/module/employee/employee_profile/controller/employee_profile_controller.dart';
 export 'package:hyper_ui/module/employee/employee_profile/state/employee_profile_state.dart';
 export 'package:hyper_ui/module/employee/employee_profile/view/employee_profile_view.dart';
+export 'package:hyper_ui/module/general/user_request_detail/controller/user_request_detail_controller.dart';
+export 'package:hyper_ui/module/general/user_request_detail/state/user_request_detail_state.dart';
+export 'package:hyper_ui/module/general/user_request_detail/view/user_request_detail_view.dart';
+export 'package:hyper_ui/module/general/user_request_form/controller/user_request_form_controller.dart';
+export 'package:hyper_ui/module/general/user_request_form/state/user_request_form_state.dart';
+export 'package:hyper_ui/module/general/user_request_form/view/user_request_form_view.dart';
+export 'package:hyper_ui/module/general/user_request_list/controller/user_request_list_controller.dart';
+export 'package:hyper_ui/module/general/user_request_list/state/user_request_list_state.dart';
+export 'package:hyper_ui/module/general/user_request_list/view/user_request_list_view.dart';
+export 'package:hyper_ui/module/general/user_request_reject_popup/controller/user_request_reject_popup_controller.dart';
+export 'package:hyper_ui/module/general/user_request_reject_popup/state/user_request_reject_popup_state.dart';
+export 'package:hyper_ui/module/general/user_request_reject_popup/view/user_request_reject_popup_view.dart';
 export 'package:hyper_ui/module/hrd/hrd_dashboard/controller/hrd_dashboard_controller.dart';
 export 'package:hyper_ui/module/hrd/hrd_dashboard/state/hrd_dashboard_state.dart';
 export 'package:hyper_ui/module/hrd/hrd_dashboard/view/hrd_dashboard_view.dart';
@@ -42,6 +54,8 @@ export 'package:hyper_ui/module/hrd/hrd_profile/controller/hrd_profile_controlle
 export 'package:hyper_ui/module/hrd/hrd_profile/state/hrd_profile_state.dart';
 export 'package:hyper_ui/module/hrd/hrd_profile/view/hrd_profile_view.dart';
 export 'package:hyper_ui/service/auth_service/auth_service.dart';
+export 'package:hyper_ui/service/company_service/company_service.dart';
+export 'package:hyper_ui/service/user_request_history_service/user_request_history_service.dart';
 export 'package:hyper_ui/service/user_service/user_service.dart';
 export 'package:hyper_ui/setup.dart';
 export 'package:hyper_ui/shared/theme/theme.dart';

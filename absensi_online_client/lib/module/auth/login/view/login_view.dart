@@ -117,7 +117,7 @@ class _LoginViewState extends State<LoginView> {
                         "HRD",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 12.0,
                         ),
                       ),
                     ),
@@ -130,10 +130,26 @@ class _LoginViewState extends State<LoginView> {
                         controller.login();
                       },
                       child: Text(
-                        "Employee",
+                        "Employee User1",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 12.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        state.email = "user2.alphawaveinc@demo.com";
+                        state.password = "123456";
+                        controller.login();
+                      },
+                      child: Text(
+                        "Employee User2",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12.0,
                         ),
                       ),
                     ),

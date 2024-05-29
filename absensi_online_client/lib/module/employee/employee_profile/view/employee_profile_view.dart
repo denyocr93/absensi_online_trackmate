@@ -61,6 +61,7 @@ class _EmployeeProfileViewState extends State<EmployeeProfileView> {
 
     if (state.getUserByIdResponse == null) return LoadingScaffold();
     var item = state.getUserByIdResponse!.data!;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Profile"),
