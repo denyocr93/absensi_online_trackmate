@@ -20,3 +20,8 @@ v User Request - Face Training
 - Check Out
 - Kalender Absensi
 
+
+# ====================================
+
+- Register sebagai Company baru
+- Manage data Employee

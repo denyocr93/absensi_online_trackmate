@@ -58,6 +58,7 @@ class _QImagePickerState extends State<QImagePicker> {
     final image = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 40,
+      maxWidth: 1024,
     );
     final filePath = image?.path;
     if (filePath == null) return null;

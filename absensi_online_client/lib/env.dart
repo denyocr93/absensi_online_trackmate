@@ -1,7 +1,7 @@
 bool devMode = true;
-String productBaseUrl = "http://192.168.16.168:8000";
+String productBaseUrl = "http://192.168.145.168:8000";
 // String devBaseUrl = "http://192.168.159.168:8000";
-String devBaseUrl = "http://192.168.16.168:8000";
+String devBaseUrl = "http://192.168.145.168:8000";
 
 String get baseUrl {
   if (devMode) return devBaseUrl;

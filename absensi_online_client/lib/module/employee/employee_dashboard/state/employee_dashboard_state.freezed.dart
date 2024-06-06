@@ -22,6 +22,11 @@ mixin _$EmployeeDashboardState {
       throw _privateConstructorUsedError;
   set getUserByIdResponse(GetUserByIdResponse? value) =>
       throw _privateConstructorUsedError;
+  GetAttendanceStatusTodayResponse? get getAttendanceStatusTodayResponse =>
+      throw _privateConstructorUsedError;
+  set getAttendanceStatusTodayResponse(
+          GetAttendanceStatusTodayResponse? value) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EmployeeDashboardStateCopyWith<EmployeeDashboardState> get copyWith =>
@@ -34,7 +39,10 @@ abstract class $EmployeeDashboardStateCopyWith<$Res> {
           $Res Function(EmployeeDashboardState) then) =
       _$EmployeeDashboardStateCopyWithImpl<$Res, EmployeeDashboardState>;
   @useResult
-  $Res call({int counter, GetUserByIdResponse? getUserByIdResponse});
+  $Res call(
+      {int counter,
+      GetUserByIdResponse? getUserByIdResponse,
+      GetAttendanceStatusTodayResponse? getAttendanceStatusTodayResponse});
 
   $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse;
 }
@@ -55,6 +63,7 @@ class _$EmployeeDashboardStateCopyWithImpl<$Res,
   $Res call({
     Object? counter = null,
     Object? getUserByIdResponse = freezed,
+    Object? getAttendanceStatusTodayResponse = freezed,
   }) {
     return _then(_value.copyWith(
       counter: null == counter
@@ -65,6 +74,11 @@ class _$EmployeeDashboardStateCopyWithImpl<$Res,
           ? _value.getUserByIdResponse
           : getUserByIdResponse // ignore: cast_nullable_to_non_nullable
               as GetUserByIdResponse?,
+      getAttendanceStatusTodayResponse: freezed ==
+              getAttendanceStatusTodayResponse
+          ? _value.getAttendanceStatusTodayResponse
+          : getAttendanceStatusTodayResponse // ignore: cast_nullable_to_non_nullable
+              as GetAttendanceStatusTodayResponse?,
     ) as $Val);
   }
 
@@ -91,7 +105,10 @@ abstract class _$$EmployeeDashboardStateImplCopyWith<$Res>
       __$$EmployeeDashboardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int counter, GetUserByIdResponse? getUserByIdResponse});
+  $Res call(
+      {int counter,
+      GetUserByIdResponse? getUserByIdResponse,
+      GetAttendanceStatusTodayResponse? getAttendanceStatusTodayResponse});
 
   @override
   $GetUserByIdResponseCopyWith<$Res>? get getUserByIdResponse;
@@ -112,6 +129,7 @@ class __$$EmployeeDashboardStateImplCopyWithImpl<$Res>
   $Res call({
     Object? counter = null,
     Object? getUserByIdResponse = freezed,
+    Object? getAttendanceStatusTodayResponse = freezed,
   }) {
     return _then(_$EmployeeDashboardStateImpl(
       counter: null == counter
@@ -122,6 +140,11 @@ class __$$EmployeeDashboardStateImplCopyWithImpl<$Res>
           ? _value.getUserByIdResponse
           : getUserByIdResponse // ignore: cast_nullable_to_non_nullable
               as GetUserByIdResponse?,
+      getAttendanceStatusTodayResponse: freezed ==
+              getAttendanceStatusTodayResponse
+          ? _value.getAttendanceStatusTodayResponse
+          : getAttendanceStatusTodayResponse // ignore: cast_nullable_to_non_nullable
+              as GetAttendanceStatusTodayResponse?,
     ));
   }
 }
@@ -130,7 +153,9 @@ class __$$EmployeeDashboardStateImplCopyWithImpl<$Res>
 
 class _$EmployeeDashboardStateImpl implements _EmployeeDashboardState {
   _$EmployeeDashboardStateImpl(
-      {this.counter = 0, this.getUserByIdResponse = null});
+      {this.counter = 0,
+      this.getUserByIdResponse = null,
+      this.getAttendanceStatusTodayResponse = null});
 
   @override
   @JsonKey()
@@ -138,10 +163,13 @@ class _$EmployeeDashboardStateImpl implements _EmployeeDashboardState {
   @override
   @JsonKey()
   GetUserByIdResponse? getUserByIdResponse;
+  @override
+  @JsonKey()
+  GetAttendanceStatusTodayResponse? getAttendanceStatusTodayResponse;
 
   @override
   String toString() {
-    return 'EmployeeDashboardState(counter: $counter, getUserByIdResponse: $getUserByIdResponse)';
+    return 'EmployeeDashboardState(counter: $counter, getUserByIdResponse: $getUserByIdResponse, getAttendanceStatusTodayResponse: $getAttendanceStatusTodayResponse)';
   }
 
   @JsonKey(ignore: true)
@@ -154,8 +182,10 @@ class _$EmployeeDashboardStateImpl implements _EmployeeDashboardState {
 
 abstract class _EmployeeDashboardState implements EmployeeDashboardState {
   factory _EmployeeDashboardState(
-      {int counter,
-      GetUserByIdResponse? getUserByIdResponse}) = _$EmployeeDashboardStateImpl;
+          {int counter,
+          GetUserByIdResponse? getUserByIdResponse,
+          GetAttendanceStatusTodayResponse? getAttendanceStatusTodayResponse}) =
+      _$EmployeeDashboardStateImpl;
 
   @override
   int get counter;
@@ -163,6 +193,9 @@ abstract class _EmployeeDashboardState implements EmployeeDashboardState {
   @override
   GetUserByIdResponse? get getUserByIdResponse;
   set getUserByIdResponse(GetUserByIdResponse? value);
+  @override
+  GetAttendanceStatusTodayResponse? get getAttendanceStatusTodayResponse;
+  set getAttendanceStatusTodayResponse(GetAttendanceStatusTodayResponse? value);
   @override
   @JsonKey(ignore: true)
   _$$EmployeeDashboardStateImplCopyWith<_$EmployeeDashboardStateImpl>

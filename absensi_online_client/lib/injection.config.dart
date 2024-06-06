@@ -27,16 +27,16 @@ import 'module/general/user_request_form/controller/user_request_form_controller
 import 'module/general/user_request_list/controller/user_request_list_controller.dart'
     as _i10;
 import 'module/general/user_request_reject_popup/controller/user_request_reject_popup_controller.dart'
-    as _i16;
-import 'module/hrd/hrd_dashboard/controller/hrd_dashboard_controller.dart'
     as _i11;
-import 'module/hrd/hrd_edit_company_form/controller/hrd_edit_company_form_controller.dart'
+import 'module/hrd/hrd_dashboard/controller/hrd_dashboard_controller.dart'
     as _i12;
-import 'module/hrd/hrd_edit_profile_form/controller/hrd_edit_profile_form_controller.dart'
+import 'module/hrd/hrd_edit_company_form/controller/hrd_edit_company_form_controller.dart'
     as _i13;
-import 'module/hrd/hrd_main_navigation/controller/hrd_main_navigation_controller.dart'
+import 'module/hrd/hrd_edit_profile_form/controller/hrd_edit_profile_form_controller.dart'
     as _i14;
-import 'module/hrd/hrd_profile/controller/hrd_profile_controller.dart' as _i15;
+import 'module/hrd/hrd_main_navigation/controller/hrd_main_navigation_controller.dart'
+    as _i15;
+import 'module/hrd/hrd_profile/controller/hrd_profile_controller.dart' as _i16;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -64,17 +64,17 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i9.UserRequestFormController());
     gh.singleton<_i10.UserRequestListController>(
         () => _i10.UserRequestListController());
-    gh.singleton<_i11.HrdDashboardController>(
-        () => _i11.HrdDashboardController());
-    gh.singleton<_i12.HrdEditCompanyFormController>(
-        () => _i12.HrdEditCompanyFormController());
-    gh.singleton<_i13.HrdEditProfileFormController>(
-        () => _i13.HrdEditProfileFormController());
-    gh.singleton<_i14.HrdMainNavigationController>(
-        () => _i14.HrdMainNavigationController());
-    gh.singleton<_i15.HrdProfileController>(() => _i15.HrdProfileController());
-    gh.singleton<_i16.UserRequestRejectPopupController>(
-        () => _i16.UserRequestRejectPopupController());
+    gh.singleton<_i11.UserRequestRejectPopupController>(
+        () => _i11.UserRequestRejectPopupController());
+    gh.singleton<_i12.HrdDashboardController>(
+        () => _i12.HrdDashboardController());
+    gh.singleton<_i13.HrdEditCompanyFormController>(
+        () => _i13.HrdEditCompanyFormController());
+    gh.singleton<_i14.HrdEditProfileFormController>(
+        () => _i14.HrdEditProfileFormController());
+    gh.singleton<_i15.HrdMainNavigationController>(
+        () => _i15.HrdMainNavigationController());
+    gh.singleton<_i16.HrdProfileController>(() => _i16.HrdProfileController());
     return this;
   }
 }

@@ -59,6 +59,9 @@ class _EmployeeDashboardViewState extends State<EmployeeDashboardView> {
     EmployeeDashboardState state,
   ) {
     if (state.getUserByIdResponse == null) return LoadingScaffold();
+    if (state.getAttendanceStatusTodayResponse == null)
+      return LoadingScaffold();
+
     var item = state.getUserByIdResponse!.data!;
     return Scaffold(
       appBar: AppBar(
@@ -123,21 +126,82 @@ class _EmployeeDashboardViewState extends State<EmployeeDashboardView> {
               ),
               Row(
                 children: [
-                  EmployeeDashboardMainActionButton(
-                    icon: Icons.login,
-                    label: "Check In",
-                    time: "10:20",
-                    status: "On Time",
+                  Expanded(
+                    child: AnimatedOpacity(
+                      duration: const Duration(milliseconds: 400),
+                      opacity: 1.0,
+                      child: InkWell(
+                        onTap: () {
+                          if (controller.isCheckedInToday) return;
+                          controller.checkIn();
+                        },
+                        child: EmployeeDashboardMainActionButton(
+                          icon: Icons.login,
+                          label: "Check In",
+                          time: !controller.isCheckedInToday
+                              ? "--:--"
+                              : controller.checkInDate!.kkmm,
+                          status: "-",
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     width: 12.0,
                   ),
-                  EmployeeDashboardMainActionButton(
-                    icon: Icons.login,
-                    label: "Check Out",
-                    time: "17:00",
-                    status: "On Time",
+                  Expanded(
+                    child: AnimatedOpacity(
+                      duration: const Duration(milliseconds: 400),
+                      opacity: !controller.isCheckedInToday ? 0.6 : 1.0,
+                      child: InkWell(
+                        onTap: () {
+                          if (!controller.isCheckedInToday) return;
+                          controller.checkOut();
+                        },
+                        child: EmployeeDashboardMainActionButton(
+                          icon: Icons.login,
+                          label: "Check Out",
+                          time: !controller.isCheckedOutToday
+                              ? "--:--"
+                              : controller.checkoutDate!.kkmm,
+                          status: "-",
+                        ),
+                      ),
+                    ),
                   ),
+                ],
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () => controller.reset(),
+                    child: Text(
+                      "Reset",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20.0,
+                  ),
+                  InkWell(
+                    onTap: () => controller.loadData(),
+                    child: Text(
+                      "Check Attendance Status Today",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
                 ],
               ),
               const SizedBox(
@@ -270,77 +334,72 @@ class EmployeeDashboardMainActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: () {},
-        child: Container(
-          padding: const EdgeInsets.all(12.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                8.0,
-              ),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Color(0x19000000),
-                blurRadius: 24,
-                offset: Offset(0, 11),
-              ),
-            ],
-            border: Border.all(
-              width: 1.0,
-              color: Colors.grey[300]!,
-            ),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    icon,
-                    size: 24.0,
-                  ),
-                  const SizedBox(
-                    width: 8.0,
-                  ),
-                  Expanded(
-                    child: Text(
-                      label,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 4.0,
-              ),
-              Text(
-                time,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 4.0,
-              ),
-              Text(
-                status,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 14.0,
-                ),
-              ),
-            ],
+    return Container(
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            8.0,
           ),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x19000000),
+            blurRadius: 24,
+            offset: Offset(0, 11),
+          ),
+        ],
+        border: Border.all(
+          width: 1.0,
+          color: Colors.grey[300]!,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                icon,
+                size: 24.0,
+              ),
+              const SizedBox(
+                width: 8.0,
+              ),
+              Expanded(
+                child: Text(
+                  label,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14.0,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 4.0,
+          ),
+          Text(
+            time,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 4.0,
+          ),
+          Text(
+            status,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 14.0,
+            ),
+          ),
+        ],
       ),
     );
   }
