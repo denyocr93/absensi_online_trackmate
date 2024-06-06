@@ -78,11 +78,14 @@ return new class extends Migration
         Schema::create('user_request_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->integer('company_id');
             $table->string('request_type');
             $table->dateTime('request_date');
+            $table->double('amount')->nullable();
             $table->text('description')->nullable();
             $table->string('attachment')->nullable();
             $table->string('status');
+            $table->dateTime('update_status_date')->nullable();
             $table->integer('approved_by')->nullable();
             $table->integer('rejected_by')->nullable();
             $table->text('rejected_note')->nullable();

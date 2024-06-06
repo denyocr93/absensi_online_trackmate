@@ -8,13 +8,20 @@ use App\Models\User;
 use App\Services\FaceRecognitionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AttendanceHistoryController extends Controller
 {
     public function index(Request $request)
     {
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
+        $isHRD = $current_user->role == "HRD";
+        $isEmployee = $current_user->role == "Employee";
+
         // Mengambil data riwayat kehadiran berdasarkan user yang sedang login
-        $attendanceHistories = AttendanceHistory::where('user_id', Auth::id())->latest()->paginate($request->input('per_page', 10));
+        $attendanceHistories = AttendanceHistory::where('user_id', $current_user->id)->latest()->paginate($request->input('per_page', 10));
 
         // Mengembalikan data dalam bentuk response JSON
         return response()->json($attendanceHistories);
@@ -23,8 +30,14 @@ class AttendanceHistoryController extends Controller
 
     public function checkIn(Request $request)
     {
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
+        $isHRD = $current_user->role == "HRD";
+        $isEmployee = $current_user->role == "Employee";
+
         // Memeriksa apakah pengguna telah melakukan check-in hari ini
-        $existingCheckIn = AttendanceHistory::where('user_id', Auth::id())
+        $existingCheckIn = AttendanceHistory::where('user_id', $current_user->id)
             ->whereDate('check_in_date', now()->toDateString())
             ->first();
 
@@ -35,7 +48,7 @@ class AttendanceHistoryController extends Controller
         }
 
         //Check apakah wajah dikenali atau tidak
-        $user =  User::find(Auth::id());
+        $user =  User::find($current_user->id);
         if ($user->photo == null) {
             return response()->json(['message' => 'Please train a photo'], 400);
         }
@@ -50,7 +63,7 @@ class AttendanceHistoryController extends Controller
 
         // Jika belum, buat data baru untuk check-in
         $checkInData = [
-            'user_id' => Auth::id(),
+            'user_id' => $current_user->id,
             'check_in_latitude' => $request->input('latitude'),
             'check_in_longitude' => $request->input('longitude'),
             'check_in_photo' => $request->input('photo'),
@@ -68,8 +81,14 @@ class AttendanceHistoryController extends Controller
 
     public function checkOut(Request $request)
     {
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
+        $isHRD = $current_user->role == "HRD";
+        $isEmployee = $current_user->role == "Employee";
+
         // Memeriksa apakah pengguna telah melakukan check-out hari ini
-        $existingCheckOut = AttendanceHistory::where('user_id', Auth::id())
+        $existingCheckOut = AttendanceHistory::where('user_id', $current_user->id)
             ->whereDate('check_in_date', now()->toDateString())
             ->whereNotNull('check_out_date')
             ->first();
@@ -80,7 +99,7 @@ class AttendanceHistoryController extends Controller
         }
 
         // Mendapatkan data kehadiran terakhir untuk user yang sedang login hari ini
-        $lastAttendance = AttendanceHistory::where('user_id', Auth::id())
+        $lastAttendance = AttendanceHistory::where('user_id', $current_user->id)
             ->whereDate('check_in_date', now()->toDateString())
             ->latest()
             ->first();
@@ -90,7 +109,7 @@ class AttendanceHistoryController extends Controller
             // Melakukan check-out
 
             //Check apakah wajah dikenali atau tidak
-            $user =  User::find(Auth::id());
+            $user =  User::find($current_user->id);
             $current_user_photo = URLDownloader::download($user->photo);
             $current_user_uploaded_photo = URLDownloader::download($request->input('photo'));
             $isRecognized =  FaceRecognitionService::recognize($current_user_photo, $current_user_uploaded_photo);
@@ -117,17 +136,32 @@ class AttendanceHistoryController extends Controller
 
     public function checkInAndCheckoutStatusToday(Request $request)
     {
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
+        $isHRD = $current_user->role == "HRD";
+        $isEmployee = $current_user->role == "Employee";
+
         // Mendapatkan status check-in dan check-out untuk user yang sedang login hari ini
-        $todayAttendance = AttendanceHistory::where('user_id', Auth::id())->whereDate('check_in_date', now()->toDateString())->latest()->first();
+        $todayAttendance = AttendanceHistory::where('user_id', $current_user->id)
+            ->whereDate('check_in_date', now()->toDateString())->latest()->first();
 
         // Mengembalikan respons dalam bentuk JSON
-        return response()->json($todayAttendance);
+        return response()->json([
+            "data" => $todayAttendance
+        ]);
     }
 
     public function resetAttendanceToday(Request $request)
     {
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
+        $isHRD = $current_user->role == "HRD";
+        $isEmployee = $current_user->role == "Employee";
+
         // Menghapus data kehadiran user yang sedang login hari ini
-        AttendanceHistory::where('user_id', Auth::id())->whereDate('check_in_date', now()->toDateString())->delete();
+        AttendanceHistory::where('user_id', $current_user->id)->whereDate('check_in_date', now()->toDateString())->delete();
 
         // Mengembalikan respons berhasil
         return response()->json(['message' => 'Attendance reset successfully']);

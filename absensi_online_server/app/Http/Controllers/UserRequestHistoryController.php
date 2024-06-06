@@ -15,8 +15,25 @@ class UserRequestHistoryController extends Controller
 {
     public function index(Request $request)
     {
-        $userRequestHistories = UserRequestHistory::paginate($request->limit ?? 10);
-        return response()->json(['user_request_histories' => $userRequestHistories], 200);
+        $token = request()->bearerToken();
+        $accessToken = PersonalAccessToken::findToken($token);
+        $current_user = $accessToken->tokenable;
+        $isHRD = $current_user->role == "HRD";
+        $isEmployee = $current_user->role == "Employee";
+
+        $query = UserRequestHistory::with(['user', 'approvedBy', 'rejectedBy'])
+            ->where("request_type", request()->request_type)
+            ->where("status", request()->status);
+
+        if ($isEmployee) {
+            $query = $query->where('user_id', $current_user->id);
+        } else if ($isHRD) {
+            $query = $query->where('company_id', $current_user->company_id);
+        }
+
+        $query = $query->orderBy('created_at', 'desc')
+            ->paginate($request->limit ?? 10);
+        return response()->json($query, 200);
     }
 
     public function store(Request $request)
@@ -36,6 +53,7 @@ class UserRequestHistoryController extends Controller
         $accessToken = PersonalAccessToken::findToken($token);
         $current_user = $accessToken->tokenable;
         $data['user_id'] = $current_user->id;
+        $data['company_id'] = $current_user->company_id;
         $userRequestHistory = UserRequestHistory::create($data);
         return response()->json(['user_request_history' => $userRequestHistory], 201);
     }
@@ -71,14 +89,14 @@ class UserRequestHistoryController extends Controller
         $token = request()->bearerToken();
         $accessToken = PersonalAccessToken::findToken($token);
         $current_user = $accessToken->tokenable;
-        if($current_user->role == 'HRD') {
+        if ($current_user->role == 'HRD') {
             $data["approved_by"] = $current_user->id;
         }
         $userRequestHistory->update($data);
 
         //Kalau HRD mengapprove FaceTraining
         //Update photo dari user
-        if($userRequestHistory["request_type"] == "FaceTraining" && $data["status"] == "Approved") {
+        if ($userRequestHistory["request_type"] == "FaceTraining" && $data["status"] == "Approved") {
             $user = User::find($userRequestHistory['user_id']);
             $user->update([
                 "photo" => $userRequestHistory['attachment']
