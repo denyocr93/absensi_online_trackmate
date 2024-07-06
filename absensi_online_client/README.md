@@ -18,10 +18,16 @@ v User Request - Face Training
 
 - Check In
 - Check Out
-- Kalender Absensi
 
 
 # ====================================
 
+- Optimasi Gambar ketika Check in/out agar tidak terlalu lama proses-nya
+- di Api Check In dan Out sharusnya ada logic untuk ngecek apakah user absen jauh dari kantor
+  Minimal harus 50m dari titik kantor
+- Kalau user belum training wajah-nya, tombol check in dan out sharusnya disabled
+
+- Kalender Absensi
 - Register sebagai Company baru
 - Manage data Employee
+
