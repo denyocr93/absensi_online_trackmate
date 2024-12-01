@@ -1,0 +1,933 @@
+{
+    "info": {
+        "_postman_id": "e9abee23-df29-4c8f-a479-2f51f6e5ddc9",
+        "name": "Trackmate",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"hrd1.alphawaveinc@demo.com\",\n  \"password\": \"123456\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Login (Employee)",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"user1.alphawaveinc@demo.com\",\n  \"password\": \"123456\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/auth/logout",
+                            "path": [
+                                "api",
+                                "auth",
+                                "logout"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "*/*",
+                                "disabled": true
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 53|aO4FVZTFeCHyyV4GfDxWDXsL9MUZke37cz9KG0AU84eaf4d0"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "Users",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/users?limit=50&sort_field=role&sort_type=asc&page=1",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "sort_field",
+                                    "value": "role"
+                                },
+                                {
+                                    "key": "sort_type",
+                                    "value": "asc"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "api",
+                                "users"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Users/{id}",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/users/3",
+                            "path": [
+                                "api",
+                                "users",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Users",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/users",
+                            "path": [
+                                "api",
+                                "users"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"Zeno\",\n  \"email\": \"zen@demo.com\",\n  \"password\": \"123456\",\n  \"role\": \"Employee\",\n  \"status\": \"Active\",\n  \"department\": \"IT\",\n  \"photo\": \"https://images.unsplash.com/photo-1711669670318-689b1cbfae70?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Users/{id}",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:8000/api/users/26",
+                            "path": [
+                                "api",
+                                "users",
+                                "26"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"name\": \"Ax\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Users/{id}",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:8000/api/users/11",
+                            "path": [
+                                "api",
+                                "users",
+                                "11"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Company",
+            "item": [
+                {
+                    "name": "Company",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/companies?limit=50&sort_field=role&sort_type=asc&page=1",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "sort_field",
+                                    "value": "role"
+                                },
+                                {
+                                    "key": "sort_type",
+                                    "value": "asc"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "api",
+                                "companies"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Company/{id}",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/companies/1",
+                            "path": [
+                                "api",
+                                "companies",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Company",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/companies",
+                            "path": [
+                                "api",
+                                "companies"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\r\n    \"company_name\": \"GRX Company\",\r\n    \"address\": \"Jalan Contoh No. 123\",\r\n    \"latitude\": -7.12345,\r\n    \"longitude\": 110.67890,\r\n    \"working_hour_start\": \"07:00\",        \"working_hour_end\": \"17:00\",\r\n    \"status\": \"Active\"\r\n}\r\n"
+                        }
+                    }
+                },
+                {
+                    "name": "Company/{id}",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:8000/api/companies/1",
+                            "path": [
+                                "api",
+                                "companies",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"company_name\": \"DRZ Company\",\n  \"address\": \"Jalan Contoh No. 123\",\n  \"latitude\": -7.12345,\n  \"longitude\": 110.67890,\n  \"working_hour_start\": \"07:00\",\n  \"working_hour_end\": \"17:00\",\n  \"status\": \"Active\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Company/{id}",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:8000/api/companies/3",
+                            "path": [
+                                "api",
+                                "companies",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "User Request History",
+            "item": [
+                {
+                    "name": "User Request History",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories?limit=50&sort_field=role&sort_type=asc&page=1",
+                            "query": [
+                                {
+                                    "key": "limit",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "sort_field",
+                                    "value": "role"
+                                },
+                                {
+                                    "key": "sort_type",
+                                    "value": "asc"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "api",
+                                "user-request-histories"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer token"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "User Request History/{id}",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user_request_histories/1",
+                            "path": [
+                                "api",
+                                "user_request_histories",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "User Request History",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories",
+                            "path": [
+                                "api",
+                                "user-request-histories"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "3|gn4eY6Ab6T9yPgqmxF8oSFiYOWgLcnyzuLPVi67Rbf1a8a06"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"request_type\": \"Leave\",\n    \"request_date\": \"2024-04-10\",\n    \"description\": \"Request for leave due to personal reasons\",\n    \"status\": \"Pending\"\n}\n"
+                        }
+                    }
+                },
+                {
+                    "name": "User Request History / Training Wajah",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories",
+                            "path": [
+                                "api",
+                                "user-request-histories"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"request_type\": \"FaceTraining\",\n    \"attachment\": \"https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg\",\n    \"request_date\": \"2024-04-10\",\n    \"description\": \"Request for leave due to personal reasons\",\n    \"status\": \"Pending\"\n}\n"
+                        }
+                    }
+                },
+                {
+                    "name": "User Request History/{id}",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories/4",
+                            "path": [
+                                "api",
+                                "user-request-histories",
+                                "4"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"description\": \"Izin cuti ya\"\n}\n"
+                        }
+                    }
+                },
+                {
+                    "name": "User Request History/Approve",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories/12",
+                            "path": [
+                                "api",
+                                "user-request-histories",
+                                "12"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"status\": \"Approved\"\n}\n"
+                        }
+                    }
+                },
+                {
+                    "name": "User Request History/Reject",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories/1",
+                            "path": [
+                                "api",
+                                "user-request-histories",
+                                "1"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"status\": \"Rejected\",\n    \"rejected_note\": \"Jangan cuti dulu bro, lusa aja ya\"\n}\n"
+                        }
+                    }
+                },
+                {
+                    "name": "User Request History/{id}",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "http://localhost:8000/api/user-request-histories/3",
+                            "path": [
+                                "api",
+                                "user-request-histories",
+                                "3"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Absensi Online",
+            "item": [
+                {
+                    "name": "Histories",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories",
+                            "path": [
+                                "api",
+                                "attendance-histories"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Check In",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/check-in",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "check-in"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Check In (Failed)",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/check-in",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "check-in"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 11|IHgfWXXflDhwoVsuWK7rmraujbbFDrySxX8pWp7d57bd27a2"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Check Out",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/check-out",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "check-out"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Check Out (Failed)",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/check-out",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "check-out"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Check In and Check Out Status Today",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/check-in-and-out-status-today",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "check-in-and-out-status-today"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Reset",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/reset-attendance-today",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "reset-attendance-today"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "Check In Copy",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "http://localhost:8000/api/attendance-histories/check-in",
+                            "path": [
+                                "api",
+                                "attendance-histories",
+                                "check-in"
+                            ],
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8000"
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"photo\": \"https://res.cloudinary.com/dotz74j1p/image/upload/v1717684669/ggc8zauxicmwlhe9wqit.jpg\", \n  \"latitude\": -6.5628381, \n  \"longitude\": 106.7180753\n}"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

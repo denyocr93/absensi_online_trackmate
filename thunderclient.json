@@ -1,0 +1,705 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Trackmate",
+    "collectionId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+    "dateExported": "2024-12-01T14:26:35.331Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "43ac26d0-7edc-4bfa-9319-bb52a7296251",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-03-29T14:43:49.112Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "abbcb3d2-2a07-401f-8969-673e539b149e",
+            "name": "User",
+            "containerId": "",
+            "created": "2024-03-29T15:14:47.856Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "619315f1-07a4-42a5-9511-cbbcf5a74ec5",
+            "name": "Company",
+            "containerId": "",
+            "created": "2024-04-03T14:45:47.110Z",
+            "sortNum": 25000
+        },
+        {
+            "_id": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History",
+            "containerId": "",
+            "created": "2024-04-03T14:55:55.673Z",
+            "sortNum": 32500
+        },
+        {
+            "_id": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Absensi Online",
+            "containerId": "",
+            "created": "2024-03-29T15:58:55.271Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0ebe67fd-714b-4dbd-811f-2f1c3ad83622",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "43ac26d0-7edc-4bfa-9319-bb52a7296251",
+            "name": "Login",
+            "url": "http://localhost:8000/api/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-29T14:43:53.511Z",
+            "modified": "2024-03-29T15:26:16.932Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"hrd1.alphawaveinc@demo.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "4bedc562-df10-4346-bf45-aaa6ec9a2b30",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "43ac26d0-7edc-4bfa-9319-bb52a7296251",
+            "name": "Login (Employee)",
+            "url": "http://localhost:8000/api/auth/login",
+            "method": "POST",
+            "sortNum": 15000,
+            "created": "2024-04-03T15:10:57.168Z",
+            "modified": "2024-04-03T15:11:05.036Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"user1.alphawaveinc@demo.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b57df557-ab57-4c2d-86cf-f14336493dda",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "43ac26d0-7edc-4bfa-9319-bb52a7296251",
+            "name": "Logout",
+            "url": "http://localhost:8000/api/auth/logout",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-29T15:01:33.591Z",
+            "modified": "2024-05-10T14:17:12.794Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 53|aO4FVZTFeCHyyV4GfDxWDXsL9MUZke37cz9KG0AU84eaf4d0"
+                }
+            ]
+        },
+        {
+            "_id": "492b29f5-e0b7-4062-a942-44a65c671c53",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "abbcb3d2-2a07-401f-8969-673e539b149e",
+            "name": "Users",
+            "url": "http://localhost:8000/api/users?limit=50&sort_field=role&sort_type=asc&page=1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-29T15:15:01.656Z",
+            "modified": "2024-03-29T15:32:03.638Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [
+                {
+                    "name": "limit",
+                    "value": "50",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_field",
+                    "value": "role",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_type",
+                    "value": "asc",
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8b15c67e-996e-4848-94d6-575a3b3c043a",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "619315f1-07a4-42a5-9511-cbbcf5a74ec5",
+            "name": "Company",
+            "url": "http://localhost:8000/api/companies?limit=50&sort_field=role&sort_type=asc&page=1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-03T14:45:47.110Z",
+            "modified": "2024-04-03T14:47:03.450Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [
+                {
+                    "name": "limit",
+                    "value": "50",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_field",
+                    "value": "role",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_type",
+                    "value": "asc",
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "cb1f01a2-4c89-494e-be5f-6c770084baa2",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History",
+            "url": "http://localhost:8000/api/user-request-histories?limit=50&sort_field=role&sort_type=asc&page=1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-04-03T14:55:55.674Z",
+            "modified": "2024-05-15T14:13:03.674Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer token"
+                }
+            ],
+            "params": [
+                {
+                    "name": "limit",
+                    "value": "50",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_field",
+                    "value": "role",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_type",
+                    "value": "asc",
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "e840bf80-357b-40c3-8d48-75523b725980",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "abbcb3d2-2a07-401f-8969-673e539b149e",
+            "name": "Users/{id}",
+            "url": "http://localhost:8000/api/users/3",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-03-29T15:45:43.151Z",
+            "modified": "2024-05-10T14:50:55.124Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ]
+        },
+        {
+            "_id": "4e30d175-fcc5-4b87-a828-032c4866ce46",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "619315f1-07a4-42a5-9511-cbbcf5a74ec5",
+            "name": "Company/{id}",
+            "url": "http://localhost:8000/api/companies/1",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-04-03T14:45:47.111Z",
+            "modified": "2024-04-03T14:47:10.979Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "570cbc5c-723f-4b22-812a-c6633912c0a6",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History/{id}",
+            "url": "http://localhost:8000/api/user_request_histories/1",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-04-03T14:55:55.675Z",
+            "modified": "2024-04-03T14:56:50.550Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "73bc4e5a-6cb7-4c30-91f9-9963ec3e5ec4",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "abbcb3d2-2a07-401f-8969-673e539b149e",
+            "name": "Users",
+            "url": "http://localhost:8000/api/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-29T15:15:11.777Z",
+            "modified": "2024-03-29T15:45:15.723Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Zeno\",\n  \"email\": \"zen@demo.com\",\n  \"password\": \"123456\",\n  \"role\": \"Employee\",\n  \"status\": \"Active\",\n  \"department\": \"IT\",\n  \"photo\": \"https://images.unsplash.com/photo-1711669670318-689b1cbfae70?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "52a6bc73-f45e-4be8-a617-4ad1ad79d621",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "619315f1-07a4-42a5-9511-cbbcf5a74ec5",
+            "name": "Company",
+            "url": "http://localhost:8000/api/companies",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-04-03T14:45:47.112Z",
+            "modified": "2024-04-03T14:49:05.165Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n    \"company_name\": \"GRX Company\",\r\n    \"address\": \"Jalan Contoh No. 123\",\r\n    \"latitude\": -7.12345,\r\n    \"longitude\": 110.67890,\r\n    \"working_hour_start\": \"07:00\",        \"working_hour_end\": \"17:00\",\r\n    \"status\": \"Active\"\r\n}\r\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1cd59ed7-86cd-4173-b3e4-268e4a3058c3",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History",
+            "url": "http://localhost:8000/api/user-request-histories",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-04-03T14:55:55.676Z",
+            "modified": "2024-04-05T13:22:13.902Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "3|gn4eY6Ab6T9yPgqmxF8oSFiYOWgLcnyzuLPVi67Rbf1a8a06"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"request_type\": \"Leave\",\n    \"request_date\": \"2024-04-10\",\n    \"description\": \"Request for leave due to personal reasons\",\n    \"status\": \"Pending\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "01e79eb6-f4c1-43a5-8d93-aaa8a8976739",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History / Training Wajah",
+            "url": "http://localhost:8000/api/user-request-histories",
+            "method": "POST",
+            "sortNum": 32500,
+            "created": "2024-04-03T15:16:06.409Z",
+            "modified": "2024-05-07T13:33:41.423Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"request_type\": \"FaceTraining\",\n    \"attachment\": \"https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg\",\n    \"request_date\": \"2024-04-10\",\n    \"description\": \"Request for leave due to personal reasons\",\n    \"status\": \"Pending\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "b69e7ca8-a091-44b7-b87c-751082aa44fa",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "abbcb3d2-2a07-401f-8969-673e539b149e",
+            "name": "Users/{id}",
+            "url": "http://localhost:8000/api/users/26",
+            "method": "PUT",
+            "sortNum": 35000,
+            "created": "2024-03-29T15:16:18.851Z",
+            "modified": "2024-03-29T15:56:02.654Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Ax\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "463614be-01d3-4c95-b823-061b9df94e09",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "619315f1-07a4-42a5-9511-cbbcf5a74ec5",
+            "name": "Company/{id}",
+            "url": "http://localhost:8000/api/companies/1",
+            "method": "PUT",
+            "sortNum": 35000,
+            "created": "2024-04-03T14:45:47.113Z",
+            "modified": "2024-05-10T15:20:55.366Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"company_name\": \"DRZ Company\",\n  \"address\": \"Jalan Contoh No. 123\",\n  \"latitude\": -7.12345,\n  \"longitude\": 110.67890,\n  \"working_hour_start\": \"07:00\",\n  \"working_hour_end\": \"17:00\",\n  \"status\": \"Active\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "87145511-88d3-44b4-8990-4803ab964c21",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History/{id}",
+            "url": "http://localhost:8000/api/user-request-histories/4",
+            "method": "PUT",
+            "sortNum": 35000,
+            "created": "2024-04-03T14:55:55.677Z",
+            "modified": "2024-04-05T13:22:18.403Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"description\": \"Izin cuti ya\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5fa925de-6f3b-42c1-a1c5-df5f3d0f003b",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History/Approve",
+            "url": "http://localhost:8000/api/user-request-histories/12",
+            "method": "PUT",
+            "sortNum": 37500,
+            "created": "2024-04-03T15:01:38.262Z",
+            "modified": "2024-05-07T13:33:48.811Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"status\": \"Approved\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "127f3d4e-31a5-4c64-a129-24dcedeea564",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History/Reject",
+            "url": "http://localhost:8000/api/user-request-histories/1",
+            "method": "PUT",
+            "sortNum": 38750,
+            "created": "2024-04-03T15:03:36.609Z",
+            "modified": "2024-04-05T13:22:23.579Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 1|zzxckHa7M9EqsUUYI4jbMNEy30Lh8fqFhXy9dxFgc1d8e0a7"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"status\": \"Rejected\",\n    \"rejected_note\": \"Jangan cuti dulu bro, lusa aja ya\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "fce407b5-5dd8-4cb5-a20b-5b69df61277e",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "abbcb3d2-2a07-401f-8969-673e539b149e",
+            "name": "Users/{id}",
+            "url": "http://localhost:8000/api/users/11",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-29T15:15:40.610Z",
+            "modified": "2024-03-29T15:57:10.822Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "60d5ce4e-fbb8-4685-a07c-6d338f33e1d0",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "619315f1-07a4-42a5-9511-cbbcf5a74ec5",
+            "name": "Company/{id}",
+            "url": "http://localhost:8000/api/companies/3",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-04-03T14:45:47.114Z",
+            "modified": "2024-04-03T14:49:43.244Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4a0e69c0-485f-4047-9c2a-a74d49845a75",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "1c2694a6-d0ae-4e8c-a3dc-bb2902664e97",
+            "name": "User Request History/{id}",
+            "url": "http://localhost:8000/api/user-request-histories/3",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-04-03T14:55:55.678Z",
+            "modified": "2024-04-05T13:22:26.188Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a6508629-bc82-42c3-b86e-fdf15713adf1",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Histories",
+            "url": "http://localhost:8000/api/attendance-histories",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-04-05T13:21:09.347Z",
+            "modified": "2024-04-05T13:37:22.630Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "86f05819-e2f5-48ca-a8ef-8f255d460019",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Check In",
+            "url": "http://localhost:8000/api/attendance-histories/check-in",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-04-05T13:23:03.590Z",
+            "modified": "2024-06-06T13:44:43.666Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "5ec6b2a8-6d92-48a8-bd9b-859383dd16d9",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Check In (Failed)",
+            "url": "http://localhost:8000/api/attendance-histories/check-in",
+            "method": "POST",
+            "sortNum": 62500,
+            "created": "2024-04-05T14:07:10.111Z",
+            "modified": "2024-05-07T13:34:29.080Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 11|IHgfWXXflDhwoVsuWK7rmraujbbFDrySxX8pWp7d57bd27a2"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "0725d95e-93d2-42c8-a708-e31b64d3ae65",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Check Out",
+            "url": "http://localhost:8000/api/attendance-histories/check-out",
+            "method": "POST",
+            "sortNum": 65000,
+            "created": "2024-04-05T13:26:05.420Z",
+            "modified": "2024-04-05T13:37:27.660Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "de8c5770-17b4-454b-8e55-bd2f32eb5fda",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Check Out (Failed)",
+            "url": "http://localhost:8000/api/attendance-histories/check-out",
+            "method": "POST",
+            "sortNum": 66250,
+            "created": "2024-04-05T14:16:24.367Z",
+            "modified": "2024-04-05T14:16:32.346Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 7|ze371PNnTcOgZLq4JDFf7OPY5ngziqHY8UhOqyx722fb6023"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"latitude\": 0,\n  \"longitude\": 0,\n  \"photo\": \"https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d4fc581b-8ddf-44be-b9c0-49f67319f6b2",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Check In and Check Out Status Today",
+            "url": "http://localhost:8000/api/attendance-histories/check-in-and-out-status-today",
+            "method": "POST",
+            "sortNum": 67500,
+            "created": "2024-04-05T13:29:00.818Z",
+            "modified": "2024-06-06T13:41:34.303Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                }
+            ]
+        },
+        {
+            "_id": "23478053-3abd-4364-b1b0-6c9659fccefb",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Reset",
+            "url": "http://localhost:8000/api/attendance-histories/reset-attendance-today",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-04-05T13:25:29.300Z",
+            "modified": "2024-06-06T14:39:59.982Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                }
+            ]
+        },
+        {
+            "_id": "b77b345a-043a-43f6-8921-0e3a7c2bd361",
+            "colId": "0f2209c6-a478-4ebf-b870-d2f7ab365d92",
+            "containerId": "673c7bbd-7595-491f-8611-fbb9e0e45152",
+            "name": "Check In Copy",
+            "url": "http://localhost:8000/api/attendance-histories/check-in",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-06-06T14:23:57.264Z",
+            "modified": "2024-06-06T14:39:25.669Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer 18|CYpjQ13mrF7Nec48knf57T5WWmABIpO7liYYCdHy7037a96b"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"photo\": \"https://res.cloudinary.com/dotz74j1p/image/upload/v1717684669/ggc8zauxicmwlhe9wqit.jpg\", \n  \"latitude\": -6.5628381, \n  \"longitude\": 106.7180753\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "a5G5sOgbS8kpx6yp-qNgauBmCAT99_1kio013-sMMU-rYIgpRbHLrsgX35RpAHIKKqxA_zOq-SIlN-r11XdUgQ"
+}
